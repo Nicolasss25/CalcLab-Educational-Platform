@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>CalcLab · Límites & Derivadas</title>
+  <link rel="stylesheet" href="css/main.css"/>
+  <link rel="stylesheet" href="css/calculadora.css"/>
+  <link rel="stylesheet" href="css/extras.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header class="site-header">
+  <div class="header-logo" onclick="goTo('home')">
+    <div class="logo-icon-box">∂</div>
+    <span class="logo-name">Calclab</span>
+  </div>
+
+  <nav class="top-nav">
+    <button class="tnav active" data-page="home">Inicio</button>
+    <button class="tnav" data-page="derivadas">Derivadas</button>
+    <button class="tnav" data-page="limites">Límites</button>
+    <button class="tnav" data-page="prueba">Ranking</button>
+    <button class="tnav" data-page="juegos">PlayLab</button>
+    <button class="tnav" data-page="ejercicios">Quiz</button>
+    <button class="tnav" data-page="teoria">Teoría</button>
+  </nav>
+
+  <div class="header-user">
+    <input id="pilot-name" class="pilot-input" type="text" placeholder="Tu nombre..." maxlength="20" value="Explorador"/>
+    <div class="xp-badge">
+      <span class="xp-star">★</span>
+      <span id="xp-total">0</span>
+      <span class="xp-label">XP</span>
+    </div>
+  </div>
+</header>
+
+<main class="site-main">
+
+  <!-- ══════════ HOME ══════════ -->
+  <div class="page active" id="pg-home">
+    <div class="home-wrap">
+      <!-- Izquierda -->
+      <div class="home-left">
+        <div class="home-eyebrow">Plataforma interactiva de cálculo</div>
+        <h1 class="home-h1">Aprende cálculo de<br>forma visual,<br>dinámica y<br>competitiva.</h1>
+        <p class="home-sub">Domina derivadas y límites con resolución paso a paso, quizzes por dificultad, mini juegos y ranking en tiempo real.</p>
+        <div class="home-cta">
+          <button class="btn-cta btn-cta-primary" onclick="goTo('derivadas')">🚀 Ir a Derivadas</button>
+          <button class="btn-cta btn-cta-secondary" onclick="goTo('limites')">📐 Ir a Límites</button>
+        </div>
+      </div>
+
+      <!-- Derecha: feature box -->
+      <div class="home-right">
+        <div class="home-feature-box">
+          <div class="hfb-title">✨ Experiencia inmersiva</div>
+          <div class="hfb-item" onclick="goTo('derivadas')">
+            <div class="hfb-dot dot-blue"></div>
+            Derivadas paso a paso
+          </div>
+          <div class="hfb-item" onclick="goTo('limites')">
+            <div class="hfb-dot dot-green"></div>
+            Límites con ejemplos visuales
+          </div>
+          <div class="hfb-item" onclick="goTo('ejercicios')">
+            <div class="hfb-dot dot-pink"></div>
+            Quiz por niveles
+          </div>
+          <div class="hfb-item" onclick="goTo('prueba')">
+            <div class="hfb-dot dot-gold"></div>
+            Ranking en vivo
+          </div>
+          <div class="hfb-item" onclick="goTo('juegos')">
+            <div class="hfb-dot dot-purple"></div>
+            PlayZone y retos rápidos
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Módulos -->
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="mc-icon-box ic-indigo">📱</div>
+        <h3>Derivadas</h3>
+        <p>Resuelve ejercicios, visualiza resultados y luego practica con mini juegos interactivos.</p>
+        <button class="btn-enter" onclick="goTo('derivadas')">Entrar</button>
+      </div>
+      <div class="module-card">
+        <div class="mc-icon-box ic-green">📐</div>
+        <h3>Límites</h3>
+        <p>Aprende límites con ejemplos guiados, módulos paso a paso y quizzes por nivel.</p>
+        <button class="btn-enter" onclick="goTo('limites')">Entrar</button>
+      </div>
+      <div class="module-card">
+        <div class="mc-icon-box ic-purple">🎮</div>
+        <h3>PlayLab</h3>
+        <p>Juega, responde rápido y gana puntos para subir en el ranking general.</p>
+        <button class="btn-enter" onclick="goTo('juegos')">Jugar</button>
+      </div>
+      <div class="module-card">
+        <div class="mc-icon-box ic-gold">🏆</div>
+        <h3>Ranking</h3>
+        <p>Consulta quién tiene el mejor puntaje y compite por entrar al top.</p>
+        <button class="btn-enter" onclick="goTo('prueba')">Ver ranking</button>
+      </div>
+      <div class="module-card">
+        <div class="mc-icon-box ic-pink">🧠</div>
+        <h3>Quiz</h3>
+        <p>Practica límites y derivadas por niveles con preguntas tipo quiz.</p>
+        <button class="btn-enter" onclick="goTo('ejercicios')">Entrar</button>
+      </div>
+      <div class="module-card">
+        <div class="mc-icon-box ic-cyan">📚</div>
+        <h3>Teoría</h3>
+        <p>Consulta las leyes, propiedades y reglas de derivadas y límites cuando lo necesites.</p>
+        <button class="btn-enter" onclick="goTo('teoria')">Ver teoría</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════ DERIVADAS ══════════ -->
+  <div class="page" id="pg-derivadas">
+    <div class="page-header">
+      <h2 class="page-title"><span class="title-symbol">∂</span> Calculadora de Derivadas</h2>
+      <p class="page-desc">Escribe la función usando el teclado. Se aplicará cada regla explicada paso a paso para que entiendas el proceso completo.</p>
+    </div>
+    <div class="calc-workspace" id="ws-derivadas"></div>
+  </div>
+
+  <!-- ══════════ LÍMITES ══════════ -->
+  <div class="page" id="pg-limites">
+    <div class="page-header">
+      <h2 class="page-title"><span class="title-symbol">∫</span> Calculadora de Límites</h2>
+      <p class="page-desc">Ingresa la función y el punto usando el teclado. La solución se resolverá con técnicas algebraicas explicadas paso a paso.</p>
+    </div>
+    <div class="calc-workspace" id="ws-limites"></div>
+  </div>
+
+  <!-- ══════════ QUIZ / EJERCICIOS ══════════ -->
+  <div class="page" id="pg-ejercicios">
+    <div class="page-header">
+      <h2 class="page-title"><span class="title-symbol">🧠</span> Quiz de Ejercicios</h2>
+      <p class="page-desc">Selecciona tipo y dificultad. Cada ejercicio tiene solución detallada para reforzar el aprendizaje.</p>
+    </div>
+    <div id="ejercicios-content"></div>
+  </div>
+
+  <!-- ══════════ RANKING / PRUEBA ══════════ -->
+  <div class="page" id="pg-prueba">
+    <div class="page-header">
+      <h2 class="page-title"><span class="title-symbol">🏆</span> Ranking & Prueba</h2>
+      <p class="page-desc">Pon a prueba tus conocimientos por niveles y compite en el ranking global.</p>
+    </div>
+    <div id="prueba-content"></div>
+  </div>
+
+  <!-- ══════════ PLAYLAB / JUEGOS ══════════ -->
+  <div class="page" id="pg-juegos">
+    <div class="page-header">
+      <h2 class="page-title"><span class="title-symbol">🎮</span> PlayLab</h2>
+      <p class="page-desc">10 juegos educativos para aprender límites y derivadas jugando. Gana XP en cada partida.</p>
+    </div>
+    <div id="juegos-content"></div>
+  </div>
+
+  <!-- ══════════ TEORÍA ══════════ -->
+  <div class="page" id="pg-teoria">
+    <div class="page-header">
+      <h2 class="page-title"><span class="title-symbol">📚</span> Sección de Teoría</h2>
+      <p class="page-desc">Consulta aquí las leyes y propiedades completas. Organizado para que encuentres lo que necesitas en segundos.</p>
+    </div>
+    <div id="teoria-content"></div>
+  </div>
+
+</main>
+
+<!-- XP Popup -->
+<div id="xp-popup" class="xp-popup">
+  <div class="xp-popup-inner">
+    <div id="xp-popup-icon">⚡</div>
+    <div id="xp-popup-title">¡Correcto!</div>
+    <div id="xp-popup-pts">+10 XP</div>
+  </div>
+</div>
+
+<script src="js/engine-limites.js"></script>
+<script src="js/engine-derivadas.js"></script>
+<script src="js/calculadora-ui.js"></script>
+<script src="js/ejercicios.js"></script>
+<script src="js/prueba.js"></script>
+<script src="js/juegos.js"></script>
+<script src="js/teoria.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
